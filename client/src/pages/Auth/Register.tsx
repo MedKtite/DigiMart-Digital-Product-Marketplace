@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 
 const RegisterForm: React.FC = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -11,7 +11,7 @@ const RegisterForm: React.FC = () => {
     const [lastName, setLastName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -31,7 +31,7 @@ const RegisterForm: React.FC = () => {
                 password
             }, { withCredentials: true });
             console.log(response.data);
-            navigate('/login'); // Redirect to login page
+            navigate('/login');
         } catch (error) {
             console.error('Error creating user:', error);
         }
