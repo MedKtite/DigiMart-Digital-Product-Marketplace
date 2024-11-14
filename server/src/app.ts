@@ -9,12 +9,12 @@ const PORT = 4000;
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // Replace with your frontend URL
+    origin: 'http://localhost:5173', 
     credentials: true,
     optionsSuccessStatus: 200
 };
 
-app.use(cors(corsOptions)); // Use CORS middleware with options
+app.use(cors(corsOptions)); 
 
 app.use(bodyParser.json());
 

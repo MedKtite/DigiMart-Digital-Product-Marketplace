@@ -26,7 +26,7 @@ const Login = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4000/api/user/login', {
+            const response = await axios.post('http://localhost:4000/api/user/get', {
                 password
             }, { withCredentials: true });
             console.log(response.data);
