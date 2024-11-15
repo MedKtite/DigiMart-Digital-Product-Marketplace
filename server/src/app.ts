@@ -4,6 +4,9 @@ import session from "express-session";
 import bodyParser from 'body-parser';
 import db from "./config/db";
 import userRouter from './routes/userRouter';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const PORT = 4000;
 const app = express();
@@ -14,11 +17,11 @@ const corsOptions = {
     optionsSuccessStatus: 200
 };
 
-app.use(cors(corsOptions)); 
-
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use(session({
     secret: 'secret',

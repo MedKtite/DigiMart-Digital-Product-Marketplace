@@ -7,8 +7,8 @@ export class User extends Model {
     public lastName!: string;
     public email!: string;
     public password!: string;
-    public isVerified!: boolean;
-    public verficationCode!: string | null;
+    public isverified!: boolean;
+    public verificationcode!: string | null;
 }
 
 User.init(
@@ -35,15 +35,14 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        isVerified: {
+        isverified: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
-        verificationCode: {
+        verificationcode: {
             type: DataTypes.STRING,
             allowNull: true,
         },
-
     },
     {
         sequelize: db,

@@ -1,13 +1,17 @@
 import { Request, Response } from 'express';
 import User from '../models/userModel';
+import crypto from 'crypto';
+import { sendVerificationEmail } from '../utils/emailService';
 
 // Controller function to create a new user
 export const createUser = async (req: Request, res: Response) => {
     const { firstName, lastName, email, password } = req.body;
     try {
+        const verificationcode= crypto.randomBytes(20).toString('hex');
         const user = await User.create({ firstName, lastName, email, password });
+        await sendVerificationEmail(email, 'Account Verification', `Please verify your account using the following code: ${verificationcode}`);
         (req.session as any).user = user;
-        res.status(201).send('User created and session started');
+        res.status(201).send('User created and session started, Please check your email to verify your account.');
     } catch (error) {
         console.error('Error creating user:', error);
         res.status(500).send('Error creating user');
@@ -20,8 +24,8 @@ export const verifyUser = async (req: Request, res: Response) => {
     try {
         const user = await User.findOne({ where: { email, verificationCode } });
         if (user) {
-            user.isVerified = true;
-            user.verficationCode = null;
+            user.isverified = true;
+            user.verificationcode = null;
             await user.save();
             res.send('User verified');
         } else {
