@@ -55,6 +55,7 @@ export default function Navbar() {
                 <FaRegUser className="text-xl text-white" />
             </div>
         </div>
+
     </div>
   )
 }
