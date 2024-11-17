@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import slide1 from "../assets/Sliders/slide1.png";
 import slide2 from "../assets/Sliders/slide2.png";
 import slide3 from "../assets/Sliders/slide3.png";
@@ -30,13 +30,13 @@ export default function Slider() {
       </div>
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-primary-gray px-3 py-1 rounded-full"
+        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-primary-gray px-3 py-[5px] rounded-full"
       >
         <i className="fas fa-chevron-left text-primary-dark-gray"></i>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute px-3 py-1 top-1/2 right-2 transform -translate-y-1/2 bg-primary-gray  rounded-full"
+        className="absolute px-3 py-[5px] top-1/2 right-2 transform -translate-y-1/2 bg-primary-gray rounded-full"
       >
         <i className="fas fa-chevron-right text-primary-dark-gray"></i>
       </button>
